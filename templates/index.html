@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LifeDays</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main><h1>LifeDays</h1><p>Скільки повних календарних днів минуло від вашого народження?</p>
+<form method="post" autocomplete="off"><label for="birth">Дата народження</label><input id="birth" name="birth_date" type="date" required max="{{ today }}" value="{{ birth }}"><button>Розрахувати</button></form>
+{% if result is not none %}<p class="result">{{ result }} днів</p>{% endif %}
+{% if error %}<p role="alert">{{ error }}</p>{% endif %}
+<footer>Версія {{ version }} · Без збереження введеної дати</footer></main></body></html>

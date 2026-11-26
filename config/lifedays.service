@@ -1,0 +1,13 @@
+[Unit]
+Description=LifeDays web application
+After=network.target
+[Service]
+User=deploy
+Group=deploy
+WorkingDirectory=/opt/lifedays/current
+ExecStart=/opt/lifedays/current/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+Restart=on-failure
+NoNewPrivileges=true
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
